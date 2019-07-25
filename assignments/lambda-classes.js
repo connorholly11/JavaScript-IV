@@ -31,7 +31,7 @@ class Instructor extends Person{
     };
 
     grade(student, subject){
-        console.log(``) //HELP
+        console.log(`${student} recieves a perfect score on ${subject}`) //HELP
     };
 }//closes Instructor extentsion Person
 
@@ -47,15 +47,15 @@ class Student extends Person{
     //method
 
     listsSubjects(){
-        return `${this.favSubjects}`
+        console.log(`${this.favSubjects}`)
     };
 
     PRAssignment(subject){
-        return `${student.name} has begun spring challenge on ${subject}` //HELP
+        console.log(`${this.name} has begun sprint challenge on ${subject}`) //HELP
     };
 
     sprintChallenge(subject){
-        return `${student.name} has begun sprint challenge on ${subject}` //HELP
+        console.log(`${this.name} has begun sprint challenge on ${subject}`) //HELP
     };
 }//closes Student extension Person
 
@@ -70,11 +70,11 @@ class ProjectManager extends Instructor{
     //method
 
     standUp(channel){
-        return `${this.name} announces to ${channel}, @channel standy times`
+        console.log(`${this.name} announces to ${channel}, @channel standy times`);
     };
 
-    debugsCode(student){
-        return `${this.name} debugs ${student.this.name}'s code on ${subject}`
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${student} code on ${subject}`)
     }
 
 }//closes Project Manager extension Instructor
@@ -100,13 +100,14 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
-  const kk = new Student({
+  const kailee = new Student({
     name: 'KK',
     location: 'Colorado',
     age: 29,
     favLanguage: 'HTML',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Don't forget the homies`,
+    favSubjects: "Math, science"
   });
 
   const syd = new ProjectManager({
@@ -119,5 +120,21 @@ const fred = new Instructor({
   });
 
 
+  //testing person
   syd.speak();
-  fred.demo(math);
+  fred.speak();
+
+  //testing instructor
+  fred.demo("math");
+  fred.grade("fred", "math");
+  syd.demo("SCIENCE");
+
+  //testing student
+  kailee.listsSubjects();
+  kailee.PRAssignment("math");
+  kailee.sprintChallenge("science");
+
+  //testing project manager
+  syd.standUp("help");
+  syd.debugsCode("connor", "math"); //needs work
+
